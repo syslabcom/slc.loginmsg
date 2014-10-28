@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="slc.loginmsg">
+
+    <configlet
+        title="Login Message settings"
+        action_id="slc.loginmsg.settings"
+        appId="slc.loginmsg"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@loginmsg-controlpanel"
+        icon_expr="string:${portal_url}/maintenance_icon.png"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

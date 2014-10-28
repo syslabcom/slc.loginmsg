@@ -9,5 +9,6 @@ class ILoginMsgSettings(Interface):
 
     static_message = schema.TextLine(
         title=u"A static login message",
-        default=u""
+        default=u"",
+        required=False,
     )
