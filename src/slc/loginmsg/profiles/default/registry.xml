@@ -1,0 +1,3 @@
+<registry>
+    <records interface="slc.loginmsg.interfaces.ILoginMsgSettings" prefix="slc.loginmsg" />
+</registry>
