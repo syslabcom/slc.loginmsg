@@ -12,3 +12,9 @@ class ILoginMsgSettings(Interface):
         default=u"",
         required=False,
     )
+
+    show_news_item = schema.Bool(
+        title=u"Show latest News Item",
+        default=False,
+        required=False,
+    )

@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# vim: set fileencoding=utf-8 :
 import unittest2 as unittest
 from Products.PlonePAS.events import UserLoggedInEvent
 from Testing.makerequest import makerequest
@@ -27,3 +29,18 @@ class TestSetMessage(IntegrationTestCase):
         messages = self.status_messages.show()
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].message, u'Welcome!')
+
+    def test_news_item(self):
+        self.registry['slc.loginmsg.show_news_item'] = True
+        api.content.create(
+            container=self.layer['portal'],
+            id='test-news',
+            title='Test News',
+            type='News Item',
+            text=u'Neuigkeiten für bärtige Flößer'
+        )
+        notify(UserLoggedInEvent(self.user))
+        messages = self.status_messages.show()
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(messages[0].message,
+                         u'Neuigkeiten für bärtige Flößer')
