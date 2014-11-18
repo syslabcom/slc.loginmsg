@@ -9,10 +9,10 @@ from five import grok
 def show_login_message(ev):
     request = api.portal.getRequest()
     registry = api.portal.getUtility(IRegistry)
-    message = registry['slc.loginmsg.static_message']
+    message = registry.get('slc.loginmsg.static_message')
     if message:
         api.portal.show_message(message, request=request)
-    show_news_item = registry['slc.loginmsg.show_news_item']
+    show_news_item = registry.get('slc.loginmsg.show_news_item')
     if show_news_item:
         cat = api.portal.get_tool('portal_catalog')
         items = cat(portal_type='News Item',
